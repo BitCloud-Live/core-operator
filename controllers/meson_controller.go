@@ -61,9 +61,11 @@ func (r *MesonReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 			// Request object not found, could have been deleted after reconcile request.
 			// Owned objects are automatically garbage collected. For additional cleanup logic use finalizers.
 			// Return and don't requeue
+			log.Info("Meson resource not found. Ignoring since object must be deleted")
 			return reconcile.Result{}, nil
 		}
 		// Error reading the object - requeue the request.
+		log.Error(err, "Failed to get Meson instance")
 		return reconcile.Result{}, err
 	}
 
