@@ -46,9 +46,9 @@ func (r *MesonReconciler) ensureService(request reconcile.Request,
 	return nil, nil
 }
 
-// backendService is a code for creating a Service
-func (r *MesonReconciler) backendService(v *v1alpha1.Meson) *corev1.Service {
-	labels := labels(v, "backend")
+// mesonService is a code for creating a Service
+func (r *MesonReconciler) mesonService(v *v1alpha1.Meson) *corev1.Service {
+	labels := v.GetLabels()
 
 	service := &corev1.Service{
 		ObjectMeta: metav1.ObjectMeta{
