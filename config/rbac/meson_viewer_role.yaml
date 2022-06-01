@@ -1,0 +1,20 @@
+# permissions for end users to view mesons.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: meson-viewer-role
+rules:
+- apiGroups:
+  - network.meson
+  resources:
+  - mesons
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - network.meson
+  resources:
+  - mesons/status
+  verbs:
+  - get

@@ -1,0 +1,7 @@
+apiVersion: network.meson/v1alpha1
+kind: Meson
+metadata:
+  name: meson-sample
+spec:
+  # Add fields here
+  foo: bar
